@@ -57,7 +57,7 @@ export function Avatar() {
         ref={svgRef}
         viewBox="0 0 200 200"
         xmlns="http://www.w3.org/2000/svg"
-        className="relative z-10 drop-shadow-2xl w-full h-auto max-w-[28rem] xl:max-w-[36rem] 2xl:max-w-[44rem]"
+        className="relative z-10 drop-shadow-2xl w-full h-auto"
       >
         <defs>
           <radialGradient id="faceGrad" cx="45%" cy="40%" r="60%">
