@@ -6,16 +6,33 @@ import { About } from "@/sections/About";
 import { Projects } from "@/sections/Projects";
 import { Skills } from "@/sections/Skills";
 import { Other } from "@/sections/Other";
+import { siteConfig } from "@/data/config";
+
+const title = `${siteConfig.name} | Software Engineer & AI/ML Enthusiast`;
+const description = siteConfig.description;
+const siteUrl = "https://sinchana-kj.vercel.app";
 
 export default function HomePage() {
   return (
     <>
       <Head>
-        <title>Portfolio Template</title>
-        <meta
-          name="description"
-          content="Simple portfolio template based on the original project."
-        />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {/* Open Graph */}
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={siteUrl} />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className="pb-20">

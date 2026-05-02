@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { siteConfig } from "@/data/config";
 
 const TILE_IMAGES = {
   education:
@@ -10,7 +11,7 @@ const TILE_IMAGES = {
   work:
     "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop",
   location:
-    "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1200&auto=format&fit=crop",
+    "https://images.unsplash.com/photo-1596422846543-75c6fc197f11?q=80&w=1200&auto=format&fit=crop",
   mindset:
     "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=1200&auto=format&fit=crop",
   default:
@@ -18,6 +19,17 @@ const TILE_IMAGES = {
 } as const;
 
 type TileKey = keyof typeof TILE_IMAGES;
+
+const craftTags = [
+  "Spring Boot",
+  "Next.js",
+  "Python",
+  "Docker",
+  "AWS",
+  "MySQL",
+  "REST APIs",
+  "System Design",
+];
 
 export function About() {
   const [activeTile, setActiveTile] = useState<TileKey | null>(null);
@@ -36,12 +48,14 @@ export function About() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-rows-[9rem_auto_9rem]">
+        {/* Profile — mobile */}
         <article className="md:hidden col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Profile</p>
-          <h3 className="mt-2 text-3xl font-black leading-[1.05]">YOUR NAME</h3>
-          <p className="mt-2 text-xs text-(--muted)">Full Stack Developer</p>
+          <h3 className="mt-2 text-2xl font-black leading-[1.05]">{siteConfig.name}</h3>
+          <p className="mt-2 text-xs text-(--muted)">{siteConfig.title}</p>
         </article>
 
+        {/* Default image — mobile */}
         <article className="md:hidden aspect-square overflow-hidden rounded-2xl border border-(--card-border)">
           <Image
             src={TILE_IMAGES.default}
@@ -52,29 +66,38 @@ export function About() {
           />
         </article>
 
+        {/* Profile — desktop */}
         <article className="hidden md:flex col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-7">
           <div className="flex w-full flex-col justify-center text-center">
             <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Profile</p>
-            <h3 className="mt-2 text-4xl font-black leading-[1.05]">YOUR NAME</h3>
+            <h3 className="mt-2 text-3xl font-black leading-[1.05]">{siteConfig.name}</h3>
             <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-(--muted)">
-              Full Stack Developer
+              {siteConfig.title}
             </p>
           </div>
         </article>
 
+        {/* Education tile */}
         <article
           onMouseEnter={() => setActiveTile("education")}
           onMouseLeave={() => setActiveTile(null)}
           className="col-span-2 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 transition-all duration-200 hover:border-violet-400/40"
         >
           <h3 className="text-sm font-bold uppercase text-(--foreground)">
-            Education & Competitions
+            Education
           </h3>
-          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
-            Highlight school/uni, engineering communities, hackathons and technical wins.
+          <p className="mt-1 text-xs font-semibold text-violet-300">
+            B.E. CSE (AI & ML) · CGPA 9.08/10
+          </p>
+          <p className="mt-1 text-xs leading-relaxed text-(--muted) sm:text-sm">
+            Vidyavardhaka College of Engineering, Mysuru · 2023–2027
+          </p>
+          <p className="mt-1 text-[10px] text-(--muted)">
+            PUC 91.16% · SSLC 88.8%
           </p>
         </article>
 
+        {/* Craft tile */}
         <article
           onMouseEnter={() => setActiveTile("work")}
           onMouseLeave={() => setActiveTile(null)}
@@ -82,10 +105,10 @@ export function About() {
         >
           <h3 className="text-sm font-bold">Craft</h3>
           <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
-            How you build products: shipping rhythm, collaboration style, and quality bar.
+            Backend-heavy full-stack developer. I build modular, tested, and production-ready systems — from REST APIs to ML-integrated platforms.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
-            {["Next.js", "React", "TypeScript", "Node", "Testing"].map((t) => (
+            {craftTags.map((t) => (
               <span
                 key={t}
                 className="rounded-full border border-white/15 px-2 py-1 text-[10px] text-(--muted)"
@@ -96,6 +119,7 @@ export function About() {
           </div>
         </article>
 
+        {/* Location tile */}
         <article
           onMouseEnter={() => setActiveTile("location")}
           onMouseLeave={() => setActiveTile(null)}
@@ -103,18 +127,19 @@ export function About() {
         >
           <Image
             src={TILE_IMAGES.location}
-            alt="Location"
+            alt="Mysore, India"
             fill
             className="object-cover opacity-70"
             sizes="(max-width: 768px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/65 to-transparent" />
           <div className="absolute bottom-0 left-0 w-full p-3">
-            <p className="text-xl font-bold leading-none">Krakow</p>
-            <p className="text-[11px] text-(--muted)">GMT+1</p>
+            <p className="text-xl font-bold leading-none">Mysore</p>
+            <p className="text-[11px] text-(--muted)">India · GMT+5:30</p>
           </div>
         </article>
 
+        {/* Mindset tile */}
         <article
           onMouseEnter={() => setActiveTile("mindset")}
           onMouseLeave={() => setActiveTile(null)}
@@ -122,7 +147,10 @@ export function About() {
         >
           <h3 className="text-sm font-bold">Mindset</h3>
           <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
-            Consistency, ownership, and focus on fundamentals over short-term hype.
+            Curiosity, consistency, and craft. I believe in shipping real things — not just studying them. My projects are my proof.
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
+            When I'm not coding, I'm dancing or exploring creative arts — both teach me the same thing: iteration beats perfection.
           </p>
           <div className="mt-4 overflow-hidden rounded-xl border border-white/10">
             <Image
@@ -130,11 +158,12 @@ export function About() {
               alt="Mindset"
               width={700}
               height={900}
-              className="h-44 w-full object-cover"
+              className="h-36 w-full object-cover"
             />
           </div>
         </article>
 
+        {/* Center hover image — desktop only */}
         <article className="hidden md:block aspect-square col-start-2 row-start-2 rounded-2xl border border-(--card-border) overflow-hidden relative">
           <AnimatePresence mode="wait">
             <motion.div

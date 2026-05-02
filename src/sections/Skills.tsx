@@ -8,36 +8,33 @@ import {
   SiReact,
   SiTailwindcss,
   SiTypescript,
+  SiPython,
+  SiSpring,
+  SiMongodb,
+  SiMysql,
+  SiFirebase,
+  SiNextdotjs,
 } from "react-icons/si";
+import { skillGroups } from "@/data/skills";
+
+const beltItems = [
+  { name: "Python", icon: SiPython, color: "#3776AB" },
+  { name: "React", icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", icon: SiNextdotjs, color: "#ffffff" },
+  { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+  { name: "Spring Boot", icon: SiSpring, color: "#6DB33F" },
+  { name: "Node.js", icon: SiNodedotjs, color: "#339933" },
+  { name: "Docker", icon: SiDocker, color: "#2496ED" },
+  { name: "MySQL", icon: SiMysql, color: "#4479A1" },
+  { name: "MongoDB", icon: SiMongodb, color: "#47A248" },
+  { name: "Firebase", icon: SiFirebase, color: "#FFCA28" },
+  { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Git", icon: SiGit, color: "#F05032" },
+];
+
+const beltChunk = [...Array(4)].flatMap(() => beltItems);
 
 export function Skills() {
-  const beltChunk = [...Array(4)].flatMap(() => [
-    { name: "React", icon: SiReact, color: "#61DAFB" },
-    { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
-    { name: "Node", icon: SiNodedotjs, color: "#339933" },
-    { name: "Tailwind", icon: SiTailwindcss, color: "#06B6D4" },
-    { name: "Docker", icon: SiDocker, color: "#2496ED" },
-    { name: "Git", icon: SiGit, color: "#F05032" },
-  ]);
-
-  const skillGroups = [
-    {
-      title: "Frontend",
-      summary: "UI architecture and polished user experiences.",
-      items: ["Next.js (Pages/App Router)", "React + TypeScript", "Tailwind CSS"],
-    },
-    {
-      title: "Backend",
-      summary: "Reliable APIs and production-ready services.",
-      items: ["Node.js + REST", "PostgreSQL / Supabase", "Auth, caching, rate-limiting"],
-    },
-    {
-      title: "Shipping",
-      summary: "From idea to deployment with quality control.",
-      items: ["GitHub workflows", "Vercel deployments", "Monitoring + iteration"],
-    },
-  ];
-
   return (
     <section
       id="skills"
@@ -55,7 +52,7 @@ export function Skills() {
           </h2>
         </div>
 
-        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-3">
+        <div className="mx-auto mt-10 grid max-w-5xl gap-4 md:grid-cols-2 lg:grid-cols-4">
           {skillGroups.map((group) => (
             <div
               key={group.title}
@@ -65,13 +62,14 @@ export function Skills() {
               <p className="mt-1 text-xs text-(--muted)">{group.summary}</p>
               <ul className="mt-3 space-y-2 text-sm text-(--muted)">
                 {group.items.map((item) => (
-                  <li key={item}>- {item}</li>
+                  <li key={item}>— {item}</li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
 
+        {/* Icon belt marquee */}
         <div className="mt-8 rounded-2xl border border-(--card-border) bg-(--card)/40 py-3">
           <div className="relative overflow-hidden">
             <motion.div
@@ -80,7 +78,7 @@ export function Skills() {
               transition={{
                 repeat: Infinity,
                 ease: "linear",
-                duration: 24,
+                duration: 30,
               }}
             >
               {[0, 1].map((copy) => (
