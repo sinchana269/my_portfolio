@@ -58,7 +58,7 @@ export function Other() {
           </p>
         </motion.div>
 
-        <div className="mx-auto grid max-w-6xl grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {items.map((item) => (
             <motion.a
               key={item.key}

@@ -38,7 +38,7 @@ export function About() {
   return (
     <section
       id="about"
-      className="mx-auto max-w-5xl px-4 pb-32 pt-0"
+      className="section pb-32 pt-0"
       style={{ scrollMarginTop: "120px" }}
     >
       <div className="mb-10 text-center">
@@ -47,7 +47,7 @@ export function About() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-3 md:grid-cols-3 md:grid-rows-[9rem_auto_9rem]">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:grid-rows-[10rem_auto_10rem] xl:gap-5">
         {/* Profile — mobile */}
         <article className="md:hidden col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Profile</p>

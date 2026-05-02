@@ -35,11 +35,11 @@ export function Projects() {
             <span className="text-gradient-shimmer">Projects</span>
           </h2>
           <p className="mx-auto mt-8 max-w-3xl px-2 text-base font-light leading-relaxed text-(--muted) sm:text-xl">
-            Card layout copied from the original portfolio style with mobile/desktop mockups.
+            A selection of projects spanning full-stack engineering, AI/ML, and cloud deployments.
           </p>
         </div>
 
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
           {projects
             .filter((p) => p.featured)
             .map((project, index) => (
