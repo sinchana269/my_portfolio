@@ -41,13 +41,13 @@ export function About() {
       className="section pb-32 pt-0"
       style={{ scrollMarginTop: "120px" }}
     >
-      <div className="mb-10 text-center">
-        <h2 className="text-3xl font-bold sm:text-5xl md:text-6xl">
+      <div className="mb-12 text-center">
+        <h2 className="text-4xl font-bold sm:text-5xl md:text-6xl xl:text-7xl">
           About <span className="text-gradient-shimmer">Me</span>
         </h2>
       </div>
 
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:grid-rows-[10rem_auto_10rem] xl:gap-5">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 md:grid-rows-[12rem_auto_12rem] xl:grid-rows-[16rem_auto_16rem] xl:gap-6">
         {/* Profile — mobile */}
         <article className="md:hidden col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-6">
           <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Profile</p>
@@ -67,11 +67,11 @@ export function About() {
         </article>
 
         {/* Profile — desktop */}
-        <article className="hidden md:flex col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-7">
+        <article className="hidden md:flex col-span-1 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-7 xl:p-9">
           <div className="flex w-full flex-col justify-center text-center">
-            <p className="text-xs uppercase tracking-[0.2em] text-violet-300">Profile</p>
-            <h3 className="mt-2 text-3xl font-black leading-[1.05]">{siteConfig.name}</h3>
-            <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-(--muted)">
+            <p className="text-xs uppercase tracking-[0.2em] text-violet-300 xl:text-sm">Profile</p>
+            <h3 className="mt-2 text-3xl font-black leading-[1.05] xl:text-4xl">{siteConfig.name}</h3>
+            <p className="mt-2 text-[10px] uppercase tracking-[0.18em] text-(--muted) xl:text-xs">
               {siteConfig.title}
             </p>
           </div>
@@ -81,18 +81,18 @@ export function About() {
         <article
           onMouseEnter={() => setActiveTile("education")}
           onMouseLeave={() => setActiveTile(null)}
-          className="col-span-2 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 transition-all duration-200 hover:border-violet-400/40"
+          className="col-span-2 row-span-1 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 xl:p-7 transition-all duration-200 hover:border-violet-400/40"
         >
-          <h3 className="text-sm font-bold uppercase text-(--foreground)">
+          <h3 className="text-sm font-bold uppercase text-(--foreground) xl:text-base">
             Education
           </h3>
-          <p className="mt-1 text-xs font-semibold text-violet-300">
+          <p className="mt-1 text-xs font-semibold text-violet-300 xl:text-sm">
             B.E. CSE (AI & ML) · CGPA 9.08/10
           </p>
-          <p className="mt-1 text-xs leading-relaxed text-(--muted) sm:text-sm">
+          <p className="mt-1 text-xs leading-relaxed text-(--muted) sm:text-sm xl:text-base">
             Vidyavardhaka College of Engineering, Mysuru · 2023–2027
           </p>
-          <p className="mt-1 text-[10px] text-(--muted)">
+          <p className="mt-1 text-[10px] text-(--muted) xl:text-xs">
             PUC 91.16% · SSLC 88.8%
           </p>
         </article>
@@ -101,17 +101,17 @@ export function About() {
         <article
           onMouseEnter={() => setActiveTile("work")}
           onMouseLeave={() => setActiveTile(null)}
-          className="col-span-1 row-span-2 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 md:col-start-3 md:row-start-2 transition-all duration-200 hover:border-violet-400/40"
+          className="col-span-1 row-span-2 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 xl:p-7 md:col-start-3 md:row-start-2 transition-all duration-200 hover:border-violet-400/40"
         >
-          <h3 className="text-sm font-bold">Craft</h3>
-          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
+          <h3 className="text-sm font-bold xl:text-base">Craft</h3>
+          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm xl:text-base">
             Backend-heavy full-stack developer. I build modular, tested, and production-ready systems — from REST APIs to ML-integrated platforms.
           </p>
           <div className="mt-4 flex flex-wrap gap-2">
             {craftTags.map((t) => (
               <span
                 key={t}
-                className="rounded-full border border-white/15 px-2 py-1 text-[10px] text-(--muted)"
+                className="rounded-full border border-white/15 px-2 py-1 text-[10px] xl:text-xs text-(--muted)"
               >
                 {t}
               </span>
@@ -123,7 +123,7 @@ export function About() {
         <article
           onMouseEnter={() => setActiveTile("location")}
           onMouseLeave={() => setActiveTile(null)}
-          className="col-span-1 row-span-1 h-full min-h-[9rem] rounded-2xl border border-(--card-border) overflow-hidden relative transition-all duration-200 hover:border-violet-400/40"
+          className="col-span-1 row-span-1 h-full min-h-[9rem] xl:min-h-[12rem] rounded-2xl border border-(--card-border) overflow-hidden relative transition-all duration-200 hover:border-violet-400/40"
         >
           <Image
             src={TILE_IMAGES.location}
@@ -133,9 +133,9 @@ export function About() {
             sizes="(max-width: 768px) 50vw, 33vw"
           />
           <div className="absolute inset-0 bg-linear-to-t from-black/65 to-transparent" />
-          <div className="absolute bottom-0 left-0 w-full p-3">
-            <p className="text-xl font-bold leading-none">Mysore</p>
-            <p className="text-[11px] text-(--muted)">India · GMT+5:30</p>
+          <div className="absolute bottom-0 left-0 w-full p-3 xl:p-5">
+            <p className="text-xl font-bold leading-none xl:text-3xl">Mysore</p>
+            <p className="text-[11px] text-(--muted) xl:text-sm">India · GMT+5:30</p>
           </div>
         </article>
 
@@ -143,13 +143,13 @@ export function About() {
         <article
           onMouseEnter={() => setActiveTile("mindset")}
           onMouseLeave={() => setActiveTile(null)}
-          className="col-span-1 row-span-2 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 md:col-start-1 md:row-start-2 transition-all duration-200 hover:border-violet-400/40"
+          className="col-span-1 row-span-2 rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 xl:p-7 md:col-start-1 md:row-start-2 transition-all duration-200 hover:border-violet-400/40"
         >
-          <h3 className="text-sm font-bold">Mindset</h3>
-          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
+          <h3 className="text-sm font-bold xl:text-base">Mindset</h3>
+          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm xl:text-base">
             Curiosity, consistency, and craft. I believe in shipping real things — not just studying them. My projects are my proof.
           </p>
-          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm">
+          <p className="mt-2 text-xs leading-relaxed text-(--muted) sm:text-sm xl:text-base">
             When I'm not coding, I'm dancing or exploring creative arts — both teach me the same thing: iteration beats perfection.
           </p>
           <div className="mt-4 overflow-hidden rounded-xl border border-white/10">
@@ -158,7 +158,7 @@ export function About() {
               alt="Mindset"
               width={700}
               height={900}
-              className="h-36 w-full object-cover"
+              className="h-40 w-full object-cover xl:h-56"
             />
           </div>
         </article>

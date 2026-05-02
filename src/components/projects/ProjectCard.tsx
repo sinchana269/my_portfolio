@@ -25,17 +25,17 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
     >
       <header className="mb-4 shrink-0">
         <div className="mb-2 flex items-center gap-3">
-          <span className="text-xs font-mono uppercase tracking-wider text-(--muted)">
+          <span className="text-xs font-mono uppercase tracking-wider text-(--muted) xl:text-sm">
             0{index + 1}
           </span>
-          <span className="h-px w-6 bg-(--card-border)" />
-          <span className="text-[10px] font-mono uppercase tracking-wider text-(--muted)">
+          <span className="h-px w-6 bg-(--card-border) xl:w-10" />
+          <span className="text-[10px] font-mono uppercase tracking-wider text-(--muted) xl:text-xs">
             {isMobile ? "Mobile App" : "Desktop App"}
           </span>
         </div>
 
         <div className="flex flex-col gap-2 min-[380px]:flex-row min-[380px]:items-center min-[380px]:justify-between">
-          <h3 className="line-clamp-2 flex-1 text-base font-bold leading-tight text-(--foreground) sm:text-lg md:text-2xl">
+          <h3 className="line-clamp-2 flex-1 text-base font-bold leading-tight text-(--foreground) sm:text-lg md:text-2xl xl:text-3xl">
             {project.title}
           </h3>
 
@@ -75,7 +75,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
           />
 
           <div className="relative z-10 shrink-0 px-4 pt-5 md:px-8 md:pt-8">
-            <p className="line-clamp-3 max-w-2xl text-[11px] leading-snug text-white/90 drop-shadow-sm sm:text-xs md:text-lg">
+            <p className="line-clamp-3 max-w-2xl text-[11px] leading-snug text-white/90 drop-shadow-sm sm:text-xs md:text-lg xl:text-xl">
               {project.description}
             </p>
           </div>
@@ -160,7 +160,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         {project.tags.slice(0, 4).map((tag) => (
           <span
             key={tag}
-            className="rounded-full border border-(--card-border) bg-(--card) px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-(--muted) md:text-[10px]"
+            className="rounded-full border border-(--card-border) bg-(--card) px-2.5 py-1 text-[9px] font-bold uppercase tracking-wider text-(--muted) md:text-[10px] xl:text-xs"
           >
             {tag}
           </span>

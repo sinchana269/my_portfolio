@@ -27,19 +27,19 @@ export function Projects() {
 
       <div className="section">
         <div className="mb-20 text-center">
-          <span className="text-base font-bold uppercase tracking-widest text-(--accent)">
+          <span className="text-base font-bold uppercase tracking-widest text-(--accent) xl:text-lg">
             Selected work
           </span>
-          <h2 className="mt-4 px-2 text-3xl font-bold tracking-tight text-pretty sm:text-5xl md:text-6xl">
+          <h2 className="mt-4 px-2 text-3xl font-bold tracking-tight text-pretty sm:text-5xl md:text-6xl xl:text-7xl">
             Featured{" "}
             <span className="text-gradient-shimmer">Projects</span>
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl px-2 text-base font-light leading-relaxed text-(--muted) sm:text-xl">
+          <p className="mx-auto mt-8 max-w-4xl px-2 text-base font-light leading-relaxed text-(--muted) sm:text-xl xl:text-2xl">
             A selection of projects spanning full-stack engineering, AI/ML, and cloud deployments.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20">
+        <div className="grid grid-cols-1 gap-16 lg:grid-cols-2 lg:gap-20 xl:gap-28">
           {projects
             .filter((p) => p.featured)
             .map((project, index) => (

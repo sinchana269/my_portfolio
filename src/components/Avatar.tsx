@@ -49,17 +49,15 @@ export function Avatar() {
   }, []);
 
   return (
-    <div className="hidden lg:flex items-center justify-center relative">
-      {/* Ambient glow behind avatar */}
-      <div className="absolute h-72 w-72 rounded-full bg-violet-500/15 blur-3xl" />
+    <div className="hidden lg:flex items-center justify-center relative w-full">
+      {/* Ambient glow behind avatar — scales with container */}
+      <div className="absolute inset-0 rounded-full bg-violet-500/10 blur-3xl scale-75" />
 
       <svg
         ref={svgRef}
         viewBox="0 0 200 200"
-        width={300}
-        height={300}
         xmlns="http://www.w3.org/2000/svg"
-        className="relative z-10 drop-shadow-2xl"
+        className="relative z-10 drop-shadow-2xl w-full h-auto max-w-[28rem] xl:max-w-[36rem] 2xl:max-w-[44rem]"
       >
         <defs>
           <radialGradient id="faceGrad" cx="45%" cy="40%" r="60%">

@@ -43,24 +43,24 @@ export function Skills() {
     >
       <div className="section">
         <div className="text-center">
-          <span className="text-xs font-bold uppercase tracking-widest text-(--accent) sm:text-base">
+          <span className="text-xs font-bold uppercase tracking-widest text-(--accent) sm:text-base xl:text-lg">
             Tech stack
           </span>
-          <h2 className="mt-2 px-2 text-3xl font-bold tracking-tight text-pretty sm:text-5xl md:text-6xl">
+          <h2 className="mt-2 px-2 text-3xl font-bold tracking-tight text-pretty sm:text-5xl md:text-6xl xl:text-7xl">
             Skills{" "}
             <span className="text-gradient-shimmer">Overview</span>
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:gap-6">
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5"
+              className="rounded-2xl border border-(--card-border) bg-linear-to-br from-(--card) to-(--card-border) p-5 xl:p-7"
             >
-              <h3 className="text-base font-semibold">{group.title}</h3>
-              <p className="mt-1 text-xs text-(--muted)">{group.summary}</p>
-              <ul className="mt-3 space-y-2 text-sm text-(--muted)">
+              <h3 className="text-base font-semibold xl:text-lg">{group.title}</h3>
+              <p className="mt-1 text-xs text-(--muted) xl:text-sm">{group.summary}</p>
+              <ul className="mt-3 space-y-2 text-sm text-(--muted) xl:text-base">
                 {group.items.map((item) => (
                   <li key={item}>— {item}</li>
                 ))}
@@ -70,10 +70,10 @@ export function Skills() {
         </div>
 
         {/* Icon belt marquee */}
-        <div className="mt-8 rounded-2xl border border-(--card-border) bg-(--card)/40 py-3">
+        <div className="mt-8 rounded-2xl border border-(--card-border) bg-(--card)/40 py-4 xl:py-6">
           <div className="relative overflow-hidden">
             <motion.div
-              className="flex w-max items-center gap-8 whitespace-nowrap"
+              className="flex w-max items-center gap-10 whitespace-nowrap xl:gap-14"
               animate={{ x: ["0%", "-50%"] }}
               transition={{
                 repeat: Infinity,
@@ -82,11 +82,12 @@ export function Skills() {
               }}
             >
               {[0, 1].map((copy) => (
-                <div key={copy} className="flex items-center gap-8 px-4">
+                <div key={copy} className="flex items-center gap-10 px-6 xl:gap-14">
                   {beltChunk.map((item, index) => (
-                    <div key={`${copy}-${item.name}-${index}`} className="flex items-center gap-2">
-                      <item.icon style={{ color: item.color }} size={16} />
-                      <span className="text-xs uppercase tracking-wider text-(--muted)">
+                    <div key={`${copy}-${item.name}-${index}`} className="flex items-center gap-3">
+                      <item.icon style={{ color: item.color }} size={22} className="xl:hidden" />
+                      <item.icon style={{ color: item.color }} size={28} className="hidden xl:block" />
+                      <span className="text-sm uppercase tracking-wider text-(--muted) xl:text-base">
                         {item.name}
                       </span>
                     </div>
