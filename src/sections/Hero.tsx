@@ -1,4 +1,3 @@
-import { Avatar } from "@/components/Avatar";
 import { siteConfig } from "@/data/config";
 
 export function Hero() {
@@ -51,8 +50,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Right — animated SVG avatar (fills column) */}
-        <Avatar />
+        {/* Right — intentionally left empty so the global fixed Avatar can occupy this space */}
+        <div className="hidden lg:block w-full h-full min-h-[500px]"></div>
       </div>
     </section>
   );

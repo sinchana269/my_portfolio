@@ -12,6 +12,9 @@ const title = `${siteConfig.name} | Software Engineer & AI/ML Enthusiast`;
 const description = siteConfig.description;
 const siteUrl = "https://sinchana-kj.vercel.app";
 
+import dynamic from 'next/dynamic';
+const Avatar = dynamic(() => import('@/components/Avatar').then(mod => mod.Avatar), { ssr: false });
+
 export default function HomePage() {
   return (
     <>
@@ -35,7 +38,8 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="pb-20">
+      <main className="pb-20 relative z-10">
+        <Avatar />
         <Navbar />
         <Hero />
         <About />
