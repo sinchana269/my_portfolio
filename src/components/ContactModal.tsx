@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Calendar, Mail, Copy, X, Github, Linkedin } from "lucide-react";
+import { Phone, Mail, Copy, X, Github, Linkedin } from "lucide-react";
 import { useState } from "react";
 
 interface ContactModalProps {
@@ -56,21 +56,21 @@ export default function ContactModal({ isOpen, onClose }: ContactModalProps) {
 
               <div className="grid grid-cols-2 gap-4 mb-8">
                 <a 
-                  href="tel:+1234567890" 
+                  href="tel:+919353286087" 
                   className="flex flex-col p-4 sm:p-5 rounded-2xl bg-[#222] border border-[#333] hover:border-[#555] transition-colors group"
                 >
-                  <Calendar className="w-5 h-5 text-purple-500 mb-4 group-hover:scale-110 transition-transform" />
-                  <span className="text-sm font-bold text-white mb-1">Book a call</span>
-                  <span className="text-[10px] sm:text-xs font-semibold text-white/40 uppercase">30 Min Call</span>
+                  <Phone className="w-5 h-5 text-purple-500 mb-4 group-hover:scale-110 transition-transform" />
+                  <span className="text-sm font-bold text-white mb-1">Call me</span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-white/40 uppercase">+91 93532 86087</span>
                 </a>
                 
                 <a 
                   href={`mailto:${email}`} 
-                  className="flex flex-col p-4 sm:p-5 rounded-2xl bg-[#222] border border-[#333] hover:border-[#555] transition-colors group"
+                  className="flex flex-col p-4 sm:p-5 rounded-2xl bg-[#222] border border-[#333] hover:border-[#555] transition-colors group overflow-hidden"
                 >
                   <Mail className="w-5 h-5 text-purple-500 mb-4 group-hover:scale-110 transition-transform" />
                   <span className="text-sm font-bold text-white mb-1">Email me</span>
-                  <span className="text-[10px] sm:text-xs font-semibold text-white/40 uppercase">Open Gmail</span>
+                  <span className="text-[10px] sm:text-xs font-semibold text-white/40 truncate w-full" title={email}>{email}</span>
                 </a>
               </div>
 
